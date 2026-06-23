@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -47,6 +49,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        ChangeScences("Main Menu");
+    }
 
+    public void ChangeScences(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }

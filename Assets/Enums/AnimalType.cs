@@ -1,0 +1,1 @@
+enum AnimalType {Mammal, Lizard, Fish, Bird, Insect};

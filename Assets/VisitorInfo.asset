@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b11cf4ce4862a49b9478584eccf4d9, type: 3}
   m_Name: VisitorInfo
   m_EditorClassIdentifier: 
-  visitorWeights: {fileID: 0}
-  startingCash: 0
+  visitorWeights: {fileID: 11400000, guid: c2d9bfeb997d4bd4da2dd4ae2bdad4a4, type: 2}
+  startingCash: 54.1

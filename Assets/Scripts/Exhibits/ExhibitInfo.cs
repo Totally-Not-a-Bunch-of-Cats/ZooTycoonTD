@@ -10,5 +10,7 @@ public class ExhibitInfo : ScriptableObject
 
     [SerializeField]
     AnimalType animalType;
+
+    //Need a sprite/model?
     
 }

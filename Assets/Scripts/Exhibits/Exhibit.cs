@@ -1,52 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class Exhibit : MonoBehaviour
+public class Exhibit : ScriptableObject
 {
-
     [SerializeField]
-    ExhibitInfo exhibitInfo;
+    public ExhibitInterface exhibitInterface;
 
-    [SerializeField]
-    ExhibitEffect exhibitEffect;
+    public GameObject ExhabitPrefab;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnExhibitEnter(Collision collision)
     {
-        exhibitEffect.exhibit = this;
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnExhibitExited(Collision collision)
     {
-        exhibitEffect.OnGameUpdated();
+        
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void OnCooldownStarted()
     {
-        exhibitEffect.OnExhibitEnter(collision);
+        
+    } 
+
+    public void OnCooldownEnded()
+    {
+        
     }
 
-    void OnCollisionExit(Collision collision)
+    public void OnAbilityActivated()
     {
-        exhibitEffect.OnExhibitExited(collision);
+        
     }
 
-    public void ActivateAbility()
+    public void OnGameUpdated()
     {
-        exhibitEffect.OnAbilityActivated();
-    }
-
-    public void StartCooldown(float time)
-    {
-        StartCoroutine(CooldownTimer(time));
-        exhibitEffect.OnCooldownStarted();
-    }
-
-    IEnumerator CooldownTimer(float time)
-    {
-        yield return new WaitForSeconds(time);
-        exhibitEffect.OnCooldownEnded();
+    
     }
 }

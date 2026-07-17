@@ -1,0 +1,1 @@
+enum ExhibitType {Flashy, Calming, Interactive, Scary, Dark};

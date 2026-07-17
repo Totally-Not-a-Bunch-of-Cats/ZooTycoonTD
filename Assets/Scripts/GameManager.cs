@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     //Other Managers Here
 
+    ResourceManager resourceManager;
+
     private static bool m_ShuttingDown = false;
     private static object m_Lock = new object();
     private static GameManager m_Instance;

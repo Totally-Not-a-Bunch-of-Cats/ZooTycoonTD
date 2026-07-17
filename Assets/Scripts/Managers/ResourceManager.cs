@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
 
-    float cash;
+    float totalCash;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class ResourceManager : MonoBehaviour
         
     }
 
-    public void AddCash(float cash)
+    public void AddCash(ResourceEvent resourceEvent)
     {
         
     }

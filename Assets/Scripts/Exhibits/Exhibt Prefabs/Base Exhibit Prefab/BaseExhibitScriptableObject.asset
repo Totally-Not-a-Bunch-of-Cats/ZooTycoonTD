@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa23eca353f3b3439ecca8fb855e8e1, type: 3}
+  m_Name: BaseExhibitScriptableObject
+  m_EditorClassIdentifier: 
+  exhibitEffect: {fileID: 11400000, guid: 29c8d0cfd42ee4647b259387d644aefd, type: 2}
+  exhibitAssetInfo: {fileID: 11400000, guid: 4d1b217f734fade4b84ffd2a7f32da67, type: 2}
+  exhibitGameInfo: {fileID: 11400000, guid: df8ef2a2b2f8f234ab9b90ec2747fc61, type: 2}

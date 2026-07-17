@@ -7,45 +7,44 @@ public class ExhibitInterface : MonoBehaviour
 
     [SerializeField]
     Exhibit exhibit;
-    ExhibitInfo exhibitInfo;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        exhibit.exhibitInterface = this;
+        exhibit.exhibitEffect.exhibitInterface = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        exhibit.OnGameUpdated();
+        exhibit.exhibitEffect.OnGameUpdated();
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        exhibit.OnExhibitEnter(collision);
+        exhibit.exhibitEffect.OnExhibitEnter(collision);
     }
 
     void OnCollisionExit(Collision collision)
     {
-        exhibit.OnExhibitExited(collision);
+        exhibit.exhibitEffect.OnExhibitExited(collision);
     }
 
     public void ActivateAbility()
     {
-        exhibit.OnAbilityActivated();
+        exhibit.exhibitEffect.OnAbilityActivated();
     }
 
     public void StartCooldown(float time)
     {
         StartCoroutine(CooldownTimer(time));
-        exhibit.OnCooldownStarted();
+        exhibit.exhibitEffect.OnCooldownStarted();
     }
 
     IEnumerator CooldownTimer(float time)
     {
         yield return new WaitForSeconds(time);
-        exhibit.OnCooldownEnded();
+        exhibit.exhibitEffect.OnCooldownEnded();
     }
 }

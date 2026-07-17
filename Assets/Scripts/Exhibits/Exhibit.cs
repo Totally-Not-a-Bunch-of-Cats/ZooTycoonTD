@@ -1,42 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Exhibit", menuName = "ScriptableObjects/Exhibits/Exhibit", order = 1)]
 public class Exhibit : ScriptableObject
 {
-    [SerializeField]
-    public ExhibitInterface exhibitInterface;
+    public ExhibitEffect exhibitEffect;
+    public ExhibitAssetInfo exhibitAssetInfo;
 
-    public GameObject ExhabitPrefab;
-
-    public void OnExhibitEnter(Collision collision)
-    {
-        
-    }
-
-    public void OnExhibitExited(Collision collision)
-    {
-        
-    }
-
-    public void OnCooldownStarted()
-    {
-        
-    } 
-
-    public void OnCooldownEnded()
-    {
-        
-    }
-
-    public void OnAbilityActivated()
-    {
-        
-    }
-
-    public void OnGameUpdated()
-    {
-    
-    }
+    public ExhibitGameInfo exhibitGameInfo;
 }

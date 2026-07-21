@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 407779098038894154}
   - component: {fileID: 2743725243753184648}
+  - component: {fileID: -8446494776033305231}
   m_Layer: 0
-  m_Name: BaseExhibitPrefab
+  m_Name: ExampleExhibitPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88051b8a6dbb5f47a0b16fa08d4393d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exhibit: {fileID: 11400000, guid: 43a4487a9266b0943be87619ff221b28, type: 2}
+  exhibitEffect: {fileID: 0}
+  exhibitAssetInfo: {fileID: 11400000, guid: 4d1b217f734fade4b84ffd2a7f32da67, type: 2}
+  exhibitGameInfo: {fileID: 11400000, guid: df8ef2a2b2f8f234ab9b90ec2747fc61, type: 2}
+--- !u!114 &-8446494776033305231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8228584292960737151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2699951b1be7e428e58ffd389aea82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exhibitInterface: {fileID: 0}

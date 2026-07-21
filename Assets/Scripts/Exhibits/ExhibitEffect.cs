@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class ExhibitEffect : ScriptableObject
+public class ExhibitEffect : MonoBehaviour
 {
     public ExhibitInterface exhibitInterface;
 

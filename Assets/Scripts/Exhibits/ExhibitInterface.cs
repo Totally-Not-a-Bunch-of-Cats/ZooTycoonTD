@@ -30,6 +30,7 @@ public class ExhibitInterface : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         exhibitEffect.OnExhibitEnter(collision);
+        exhibitEffect.EarnEntranceFee(collision);
     }
 
     void OnCollisionExit(Collision collision)
@@ -42,15 +43,5 @@ public class ExhibitInterface : MonoBehaviour
         exhibitEffect.OnAbilityActivated();
     }
 
-    public void StartCooldown(float time)
-    {
-        StartCoroutine(CooldownTimer(time));
-        exhibitEffect.OnCooldownStarted();
-    }
-
-    IEnumerator CooldownTimer(float time)
-    {
-        yield return new WaitForSeconds(time);
-        exhibitEffect.OnCooldownEnded();
-    }
+    
 }

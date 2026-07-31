@@ -5,5 +5,5 @@ using UnityEngine;
 public class ResourceEvent : ScriptableObject 
 {
 
-    float cash;
+    public float cash;
 }

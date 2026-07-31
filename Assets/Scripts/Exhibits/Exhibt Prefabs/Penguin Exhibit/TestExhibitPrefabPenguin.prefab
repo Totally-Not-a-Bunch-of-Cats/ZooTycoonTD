@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2743725243753184648}
   - component: {fileID: 9113311719406850859}
   m_Layer: 0
-  m_Name: ExampleExhibitPrefab
+  m_Name: TestExhibitPrefabPenguin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

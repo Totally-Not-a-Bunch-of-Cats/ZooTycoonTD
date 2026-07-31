@@ -20,7 +20,7 @@ public class ExhibitEffect : MonoBehaviour
     public virtual void OnCooldownStarted()
     {
         Debug.Log("This exhibit effect did not implement an OnCooldownStarted");
-    } 
+    }
 
     public virtual void OnCooldownEnded()
     {

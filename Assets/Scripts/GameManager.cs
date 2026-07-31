@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     //Other Managers Here
 
-    ResourceManager resourceManager;
+    public ResourceManager resourceManager;
 
     private static bool m_ShuttingDown = false;
     private static object m_Lock = new object();

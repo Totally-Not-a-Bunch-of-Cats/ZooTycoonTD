@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -5,72 +6,26 @@ using UnityEngine;
 
 public class ExhibitEffect : MonoBehaviour
 {
-    public ExhibitInterface exhibitInterface;
+    [HideInInspector]
+    public ExhibitInterface ExhibitInterface {get; set;}
 
-    [SerializeField] float entranceFee;
+    [SerializeField]
+    VisitorQueueManager visitorQueueManager;
 
-    List<Visitor> visitors;
-
-    public virtual void OnExhibitEnter(Collision collision)
+    public void Start()
     {
-        Debug.Log("This exhibit effect did not implement an OnExhibitEnter");
+        visitorQueueManager.ExhibitInterface = ExhibitInterface;
     }
 
-    public virtual void OnExhibitExited(Collision collision)
+    public void VisitorQueued(Visitor visitor)
     {
-        Debug.Log("This exhibit effect did not implement an OnExhibitExited");
+        visitorQueueManager.QueueVisitor(visitor);
+        VisitExhibit(visitor);
     }
 
-    public virtual void OnCooldownStarted()
+    public virtual void VisitExhibit(Visitor visitor)
     {
-        Debug.Log("This exhibit effect did not implement an OnCooldownStarted");
+        Debug.Log("This effect didn't implement an effect: " + GetType().Name);
     }
 
-    public virtual void OnCooldownEnded()
-    {
-        Debug.Log("This exhibit effect did not implement an OnCooldownEnded");
-    }
-
-    public virtual void OnAbilityActivated()
-    {
-        Debug.Log("This exhibit effect did not implement an OnAbilityActivated");
-    }
-
-    public virtual void OnGameUpdated()
-    {
-        // Not loggging for every update lol
-    }
-
-    public void EarnEntranceFee(Collision collision)
-    {
-        if (!IsCollisionAVisitor(collision)) return;
-
-        Visitor visitor = GetVisitorFromCollision(collision);
-        float actualEarnings = visitor.ChargeVisitor(entranceFee);
-        ResourceEvent resourceEvent = new ResourceEvent();
-        resourceEvent.cash = actualEarnings;
-        GameManager.Instance.resourceManager.AddCash(resourceEvent);
-    }
-
-    public bool IsCollisionAVisitor(Collision collision)
-    {
-        return collision.gameObject.tag == "Visitor";
-    }
-
-    public Visitor GetVisitorFromCollision(Collision collision)
-    {
-        return collision.gameObject.GetComponent<Visitor>();
-    }
-
-    public void StartCooldown(float time)
-    {
-        StartCoroutine(CooldownTimer(time));
-        OnCooldownStarted();
-    }
-
-    IEnumerator CooldownTimer(float time)
-    {
-        yield return new WaitForSeconds(time);
-        OnCooldownEnded();
-    }
 }

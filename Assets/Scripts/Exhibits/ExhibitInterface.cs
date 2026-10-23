@@ -6,42 +6,66 @@ public class ExhibitInterface : MonoBehaviour
 {
 
     [SerializeField]
+    public int VisitorLimit {get;}
+
+    [SerializeField]
     ExhibitEffect exhibitEffect;
 
     [SerializeField]
-    public ExhibitAssetInfo exhibitAssetInfo;
+    ExhibitAssetInfo exhibitAssetInfo;
 
     [SerializeField]
-    public ExhibitGameInfo exhibitGameInfo;
-    
+    ExhibitGameInfo exhibitGameInfo;
 
-    // Start is called before the first frame update
+    [HideInInspector]
+    public List<Visitor> VisitorQueue {get; private set;}
+
+    [HideInInspector]
+    public bool AcceptingVisitors  {get; set;} = true;
+    
     void Start()
     {
-        exhibitEffect.exhibitInterface = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        exhibitEffect.OnGameUpdated();
+        exhibitEffect.ExhibitInterface = this;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        exhibitEffect.OnExhibitEnter(collision);
-        exhibitEffect.EarnEntranceFee(collision);
+        if(IsCollisionAVisitor(collision) && AcceptingVisitors) EnqueueVisitor(GetVisitorFromCollision(collision));
     }
 
-    void OnCollisionExit(Collision collision)
+    public bool IsCollisionAVisitor(Collision collision)
     {
-        exhibitEffect.OnExhibitExited(collision);
+        return collision.gameObject.TryGetComponent<Visitor>(out Visitor visitor);
     }
 
-    public void ActivateAbility()
+    public Visitor GetVisitorFromCollision(Collision collision)
     {
-        exhibitEffect.OnAbilityActivated();
+        if(IsCollisionAVisitor(collision)) return collision.gameObject.GetComponent<Visitor>();
+        return null;
     }
 
-    
+    public void EnqueueVisitor(Visitor visitor)
+    {
+        if(VisitorQueue.Count + 1 < VisitorLimit){
+        VisitorQueue.Add(visitor);
+        exhibitEffect.VisitorQueued(visitor);
+        visitor.enabled = false;
+        }
+    }
+
+    public void DequeueVisitor(Visitor visitor)
+    {
+        visitor.enabled = true;
+        VisitorQueue.Remove(visitor);
+    }
+
+    public void DequeueAllVisitors()
+    {
+        AcceptingVisitors = false;
+        foreach(Visitor visitor in VisitorQueue)
+        {
+            DequeueVisitor(visitor);
+        }
+        AcceptingVisitors = true;
+    }
 }
